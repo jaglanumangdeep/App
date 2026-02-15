@@ -17,36 +17,14 @@ fi
 
 mkdir -p "$OUTPUT_DIR"
 
-copy_with_excludes() {
-  if command -v rsync >/dev/null 2>&1; then
-    rsync -a \
-      --exclude='.git' \
-      --exclude='node_modules' \
-      --exclude='.expo' \
-      --exclude='.DS_Store' \
-      --exclude='dist' \
-      --exclude='build' \
-      "$SOURCE_DIR/" "$OUTPUT_DIR/"
-    return
-  fi
-
-  if command -v tar >/dev/null 2>&1; then
-    (cd "$SOURCE_DIR" && tar \
-      --exclude='.git' \
-      --exclude='node_modules' \
-      --exclude='.expo' \
-      --exclude='.DS_Store' \
-      --exclude='dist' \
-      --exclude='build' \
-      -cf - .) | (cd "$OUTPUT_DIR" && tar -xf -)
-    return
-  fi
-
-  echo "Error: neither rsync nor tar is available on this system."
-  exit 1
-}
-
-copy_with_excludes
+rsync -a \
+  --exclude='.git' \
+  --exclude='node_modules' \
+  --exclude='.expo' \
+  --exclude='.DS_Store' \
+  --exclude='dist' \
+  --exclude='build' \
+  "$SOURCE_DIR/" "$OUTPUT_DIR/"
 
 cd "$OUTPUT_DIR"
 
