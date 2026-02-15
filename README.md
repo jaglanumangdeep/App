@@ -48,3 +48,16 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+## Independent replica setup
+
+This repository is configured as an independent app replica with unique project identifiers:
+
+- npm package name: `service-marketplace-replica`
+- Expo app name: `Service Marketplace Replica`
+- Expo slug: `service-marketplace-replica`
+- iOS bundle identifier: `com.independent.servicemarketreplica`
+- Android package: `com.independent.servicemarketreplica`
+
+To keep it fully independent on your machine, avoid adding the original project as a Git remote.

@@ -2,21 +2,35 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   Image,
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import Footer from '../HomeScreen/Footer';
 import Header from '../HomeScreen/Header';
 
 const categories = [
-  { icon: 'sparkles', label: 'Cleaning', color: '#B620E0' },
-  { icon: 'build', label: 'Repairing', color: '#F9A825' },
-  { icon: 'format-paint', label: 'Painting', color: '#00BCD4' },
-  { icon: 'local-shipping', label: 'Shifting', color: '#E53935' },
+  {
+    label: 'Cleaning',
+    image:
+      'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=300&q=80',
+  },
+  {
+    label: 'Repairing',
+    image:
+      'https://images.unsplash.com/photo-1581147036324-c1c9a27f5f06?auto=format&fit=crop&w=300&q=80',
+  },
+  {
+    label: 'Painting',
+    image:
+      'https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=300&q=80',
+  },
+  {
+    label: 'Shifting',
+    image:
+      'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=300&q=80',
+  },
 ];
 
 const businesses = [
@@ -86,7 +100,7 @@ export default function Home() {
           {categories.map((item, index) => (
             <TouchableOpacity key={index} onPress={() => setSelectedCategory(item.label)}>
               <View style={styles.categoryItem}>
-                <MaterialIcons name={item.icon} size={32} color={item.color} />
+                <Image source={{ uri: item.image }} style={styles.categoryImage} />
                 <Text style={styles.categoryLabel}>{item.label}</Text>
               </View>
             </TouchableOpacity>
@@ -138,6 +152,13 @@ const styles = StyleSheet.create({
   viewAll: { color: '#9C27B0' },
   categoryRow: { flexDirection: 'row', justifyContent: 'space-around', marginVertical: 10 },
   categoryItem: { alignItems: 'center' },
+  categoryImage: {
+    width: 58,
+    height: 58,
+    borderRadius: 29,
+    borderWidth: 1,
+    borderColor: '#E7D6F3',
+  },
   categoryLabel: { marginTop: 4, fontSize: 12 },
   businessRow: {
     flexDirection: 'row',
