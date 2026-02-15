@@ -50,22 +50,18 @@ This is an Expo React Native project configured as an **independent replica**.
 
 If GitHub still shows **"forked from ..."**, that is repository metadata and cannot be removed by editing files in this repo.
 
-Use this flow to publish a completely fresh repository:
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-1. Create a standalone copy with fresh git history:
 
-   ```bash
-   bash scripts/create-independent-project.sh ../AppStandalone
-   ```
+## Independent replica setup
 
-2. Create a **new empty repository** on GitHub (do not use Fork).
+This repository is configured as an independent app replica with unique project identifiers:
 
-3. Push the standalone project:
+- npm package name: `service-marketplace-replica`
+- Expo app name: `Service Marketplace Replica`
+- Expo slug: `service-marketplace-replica`
+- iOS bundle identifier: `com.independent.servicemarketreplica`
+- Android package: `com.independent.servicemarketreplica`
 
-   ```bash
-   cd ../AppStandalone
-   git remote add origin https://github.com/<your-username>/<new-repo>.git
-   git push -u origin main
-   ```
-
-This produces a new repository with no fork relationship to prior projects.
+To keep it fully independent on your machine, avoid adding the original project as a Git remote.
