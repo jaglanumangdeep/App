@@ -1,58 +1,44 @@
-# Welcome to your Expo app 👋
+# Service Marketplace Replica
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an Expo React Native project configured as an **independent replica**.
 
-## Get started
+## Run locally
 
-1. Install dependencies
+1. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Start the app:
 
    ```bash
-   npx expo start
+   npm start
    ```
 
-In the output, you'll find options to open the app in a
+3. Open a platform:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Web:
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+  ```bash
+  npm run web
+  ```
 
-## Get a fresh project
+- Android:
 
-When you're ready, run:
+  ```bash
+  npm run android
+  ```
 
-```bash
-npm run reset-project
-```
+- iOS:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+  ```bash
+  npm run ios
+  ```
 
-## Learn more
+> Note: the npm scripts use Expo offline mode (`--offline`) to avoid network-dependent dependency validation in restricted environments.
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-
-
-## Independent replica setup
-
-This repository is configured as an independent app replica with unique project identifiers:
+## Independent replica identifiers
 
 - npm package name: `service-marketplace-replica`
 - Expo app name: `Service Marketplace Replica`
@@ -60,23 +46,21 @@ This repository is configured as an independent app replica with unique project 
 - iOS bundle identifier: `com.independent.servicemarketreplica`
 - Android package: `com.independent.servicemarketreplica`
 
-To keep it fully independent on your machine, avoid adding the original project as a Git remote.
+## Create a brand-new GitHub repo (no fork history)
 
-## Create a brand-new repo (no fork history)
+If GitHub still shows **"forked from ..."**, that is repository metadata and cannot be removed by editing files in this repo.
 
-If GitHub still shows **"forked from ..."**, that is repository-level metadata and cannot be removed by code changes inside this repo.
+Use this flow to publish a completely fresh repository:
 
-Use this flow to create a clean standalone project with no linkage:
-
-1. Run the export script from this repo root:
+1. Create a standalone copy with fresh git history:
 
    ```bash
    bash scripts/create-independent-project.sh ../AppStandalone
    ```
 
-2. In GitHub, create a **new empty repository** (do not use Fork).
+2. Create a **new empty repository** on GitHub (do not use Fork).
 
-3. Push the standalone folder to your new repo:
+3. Push the standalone project:
 
    ```bash
    cd ../AppStandalone
@@ -84,4 +68,4 @@ Use this flow to create a clean standalone project with no linkage:
    git push -u origin main
    ```
 
-This produces a repository with fresh commit history and no fork relationship to the previous project.
+This produces a new repository with no fork relationship to prior projects.
